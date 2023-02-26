@@ -32,7 +32,8 @@ export default function useFetch(query = "", page = 1) {
                         user: {
                             name: item.user.name,
                             instagram: item.user.instagram_username,
-                            profile_img: item.user.profile_image.medium
+                            profile_img: item.user.profile_image.medium,
+                            like:item.likes
                         },
                         description: item.description ? item.description : "",
                         alt_descr: item.alt_description ? item.alt_description : ""
