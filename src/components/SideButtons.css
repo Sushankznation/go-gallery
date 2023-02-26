@@ -1,0 +1,24 @@
+.side-btns {
+    position: fixed;
+    bottom: 0.4rem;
+    right: 0.4rem;
+    z-index: 99;
+}
+
+.side-btn {
+    display: block;
+    border: none;
+    outline: none;
+    
+    background-color: var(---btn-bg);
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 12px;
+    margin-top: 0.4rem;
+    padding: 0px;
+}
+
+.side-btn > p {
+    margin: auto;
+}

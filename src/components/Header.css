@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.header-logo {
+  cursor: pointer;
+}
+
+.header-title {
+  font-family: Lobster, Monospace;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin: 0;
+  margin-top: -6px;
+}
+
+.header-sub {
+  font-size: 0.75rem;
+  margin: -2px 0 0;
+}
+
+.header-search {
+  background-color: var(---btn-bg);
+  border-radius: 2rem;
+  height: 2.6rem;
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  outline: none;
+  border: none;
+  border-radius: 2rem;
+  background-color: transparent;
+  font-size: 1em;
+  padding-right: 16px;
+  height: 100%;
+  width: 100%;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  outline: none;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.header-btns > button {
+  border: none;
+  outline: none;
+  background-color: var(---btn-bg);
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 0.9em;
+  height: 3em;
+  width: 5.8em;
+}
+
+.header-btns > button:first-child {
+  margin-right: 0.5em;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 0.6rem;
+    position: static;
+  }
+
+  .header-search {
+    width: 90%;
+  }
+}
+
+/* DARK MODE */
+.dark .header {
+  background-color: var(--darkmode-bg);
+  box-shadow: 0px 3px 8px rgba(230, 230, 230, 0.1);
+}
+
+.dark .header-search,
+.dark .search-btn,
+.dark .search-input {
+  background-color: var(--darkmode-bg-light);
+  color: var(--darkmode-color-light);
+}
+
+.dark .header-darkmode > button {
+  color: var(--darkmode-color);
+}

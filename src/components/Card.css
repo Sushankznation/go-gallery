@@ -1,0 +1,46 @@
+.card-container {
+    margin: 0 auto;
+}
+
+.card-image {
+    object-fit: contain;
+    width: 100%;
+    border-radius: 16px;
+}
+
+.card-content {
+    padding: 0 2px;
+}
+
+.media {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.user-pic {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.user-name {
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.user-name,
+.user-insta {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content-descr {
+    margin: 0.4rem 0;
+}
+
+.content-time {
+    margin: 0;
+    font-size: 0.7em;
+}
