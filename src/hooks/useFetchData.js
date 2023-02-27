@@ -4,26 +4,26 @@ import axios from "axios"
 const API_KEY = process.env.REACT_APP_API_KEY
 
 export default function useFetch(query = "", page = 1) {
-    const [data, setData] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-    const [hasMore, setHasMore] = useState(false)
+    const [data, setData] = useState([]) // state for fetched data
+    const [loading, setLoading] = useState(true) // state for loading status
+    const [error, setError] = useState(null) // state for error status
+    const [hasMore, setHasMore] = useState(false) // state for pagination
 
     useEffect(() => {
-        setData([])
+        setData([]) // clear data when query changes
     }, [query])
 
     useEffect(() => {
-        setLoading(true)
+        setLoading(true) // set loading status to true
         let url
-        if (query === "") url = "https://api.unsplash.com/photos/random/?count=30"
-        else url = `https://api.unsplash.com/search/photos/?query=${query}&page=${page}&per_page=30`
+        if (query === "") url = "https://api.unsplash.com/photos/random/?count=30" // endpoint for random photos
+        else url = `https://api.unsplash.com/search/photos/?query=${query}&page=${page}&per_page=30` // endpoint for search photos
 
         axios.get(url, {
             headers: { 'Authorization': `Client-ID ${API_KEY}` }
         })
             .then(response => {
-                const responseData = query === "" ? response.data : response.data.results
+                const responseData = query === "" ? response.data : response.data.results // extract response data based on query
                 const newData = responseData.map(item => {
                     return {
                         id: item.id,
@@ -39,16 +39,17 @@ export default function useFetch(query = "", page = 1) {
                         alt_descr: item.alt_description ? item.alt_description : ""
                     }
                 })
-                setData(prevData => [...new Set([...prevData, ...newData])]) //for duplicates
-                setError(null)
-                if (query !== "") setHasMore(response.data.total_pages > page)
+                setData(prevData => [...new Set([...prevData, ...newData])]) // merge previous data with new data and remove duplicates
+                setError(null) // reset error status
+                if (query !== "") setHasMore(response.data.total_pages > page) // calculate pagination status
                 else setHasMore(true)
             })
             .catch(err => {
-                setError(err)
-                console.log(err)})
-            .finally(() => setLoading(false))
-    }, [query, page])
+                setError(err) // set error status
+                console.log(err)
+            })
+            .finally(() => setLoading(false)) // set loading status to false
+    }, [query, page]) // fetch data when query or page changes
 
-    return [data, loading, error, hasMore]
+    return [data, loading, error, hasMore] // return fetched data, loading status, error status, and pagination status
 }

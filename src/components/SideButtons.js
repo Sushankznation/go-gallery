@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./SideButtons.css"
 
+// function to scroll to the top of the page
 function scrollToTop() {
     window.scrollTo({
         top: 0,
@@ -8,25 +9,27 @@ function scrollToTop() {
     })
 }
 
+// functional component for the side buttons
 function SideButtons() {
+    // state variable to show or hide the "scroll to top" button
     const [showTopBtn, setShowTopBtn] = useState(false)
    
-
+    // useEffect hook to update showTopBtn state based on window.pageYOffset
     useEffect(() => {
         function handleScroll() {
             if (window.pageYOffset > 1000) setShowTopBtn(true)
             else setShowTopBtn(false)
         }
+        // event listener added to window object to listen for scroll event
         window.addEventListener("scroll", handleScroll)
+        // cleanup function to remove event listener
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
-  
-
-  
-
+    // return JSX for the side buttons component
     return (
         <div className="side-btns">
+            {/* conditional rendering of "scroll to top" button */}
             {showTopBtn && (
             <button className="btn side-btn" title="Scroll to Top" onClick={scrollToTop}>
                 <p>
@@ -36,9 +39,11 @@ function SideButtons() {
                 </p>
             </button>)}
 
+            {/* more buttons can be added here */}
            
         </div>
     )
 }
 
+// export the SideButtons component with React.memo() for performance optimization
 export default React.memo(SideButtons)
