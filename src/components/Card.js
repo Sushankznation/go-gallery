@@ -1,5 +1,5 @@
 import React from "react" // Importing the React library
-
+import { MdOutlineZoomInMap } from 'react-icons/md';
 import "./Card.css" // Importing CSS styles for the Card component
 
 function Card(props) { // Defining the Card component, which accepts props as its argument
@@ -38,7 +38,7 @@ function Card(props) { // Defining the Card component, which accepts props as it
                     <div className="popup-content">
                         <img className="popup-image" src={props.url_full} alt={props.alt_descr} /> 
                         {/* // Adding a full-sized image to the popup */}
-                        <button onClick={togglePopup} className="cut-btn">X</button>
+                        <button onClick={togglePopup} className="cut-btn"><MdOutlineZoomInMap /></button>
                          {/* // Adding a button to close the popup */}
                     </div>
                 </div>
