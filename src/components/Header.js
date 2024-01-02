@@ -1,10 +1,10 @@
 import { useState,useEffect } from "react"
-import "./Header.css"
+import "../styles/Header.css"
 import React from "react"
 
 function Header({handleSearch}) {
     // Set up state to keep track of dark mode
-    const [darkMode, setDarkMode] = useState(false)
+    const [darkMode, setDarkMode] = useState(true)
 
     // Handle pressing "Enter" key in search input
     function handleEnter(e, value) {
@@ -28,7 +28,7 @@ function Header({handleSearch}) {
     // Effect to load preferred dark mode from local storage
     useEffect(() => {
         const preferredDarkMode = localStorage.getItem("darkMode");
-        if (preferredDarkMode === "true") setDarkMode(true)
+        if (preferredDarkMode === "true") setDarkMode(false)
     }, [])
 
     // Render the header component

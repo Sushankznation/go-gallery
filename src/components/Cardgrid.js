@@ -2,7 +2,7 @@ import React from "react"
 import Card from "./Card"
 import Masonry from 'react-masonry-css'
 
-import "./Cardgrid.css"
+import "../styles/Cardgrid.css"
 
 const breakpointColumnsObj = {
     default: 5, // default number of columns

@@ -1,6 +1,6 @@
 import React from "react" // Importing the React library
 import { MdOutlineZoomInMap } from 'react-icons/md';
-import "./Card.css" // Importing CSS styles for the Card component
+import "../styles/Card.css" // Importing CSS styles for the Card component
 
 function Card(props) { // Defining the Card component, which accepts props as its argument
     const [showPopup, setShowPopup] = React.useState(false) // Using the useState hook to create a state variable called showPopup, which defaults to false. Also defining a function called setShowPopup to update the showPopup state.

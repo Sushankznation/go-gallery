@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import "./SideButtons.css"
+import "../styles/SideButtons.css"
 
 // function to scroll to the top of the page
 function scrollToTop() {
