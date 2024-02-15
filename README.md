@@ -1,6 +1,6 @@
 
 
-# Gp Gallery 
+# Go Gallery 
 
 An Gallery App, which is fetching data from Unsplash API. 
 ## Authors
